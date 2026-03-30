@@ -59,7 +59,7 @@ const SHEET_ID = '1Tk9lCByGs2MegH2AdGYOfmEh3Mv_HkvNLFgEuc9UGrA';
 // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 const SHEET_NAMES = {
-  events:     'Events',
+  events:     'pastevent',
   pastEvents: 'PastEvents',
   members:    'Members',
 };
