@@ -40,9 +40,9 @@
     transparent 28%, var(--color-bg) 100%);
   pointer-events: none;
 }
-@media (max-width: 640px) {
-  .slide-section { padding: 40px 16px 48px; }
-  .slide-stage   { gap: 10px; }
+@media (max-width: 768px) {
+  .slide-section { padding: 12px 4px 16px; }
+  .slide-stage   { gap: 4px; }
 }
 
 /* ===== Hero Sub (画像下のテキスト＋CTA) ===== */
