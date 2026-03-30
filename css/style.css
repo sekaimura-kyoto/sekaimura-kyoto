@@ -460,8 +460,8 @@ ul, ol { list-style: none; }
 
   /* hero catchcopy: 1行に収まるよう縮小 */
   .hero__title {
-    font-size: clamp(15px, 5.2vw, 24px);
-    letter-spacing: 0.02em;
+    font-size: 22px;
+    letter-spacing: 0.01em;
     white-space: nowrap;
   }
 
