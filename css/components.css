@@ -648,7 +648,7 @@
   background: var(--color-bg-light);
   color: var(--color-text);
 }
-.insta-cta__icon { font-size: 36px; margin-bottom: 16px; }
+.insta-cta__icon { font-size: 36px; margin-bottom: 16px; display: flex; justify-content: center; }
 .insta-cta__text {
   font-family: var(--font-heading);
   font-size: clamp(18px, 3vw, 26px);
