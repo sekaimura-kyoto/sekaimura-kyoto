@@ -282,13 +282,17 @@
   // お問い合わせ種別によってメッセージプレースホルダーを切り替え
   const typeSelect   = document.getElementById('type');
   const messageArea  = document.getElementById('message');
+  const subjectInput = document.getElementById('subject');
   const PH_EVENT     = '参加人数（大人○名、高校生以下のお子様○名）と\n乗り合わせご希望の場合は最寄り駅、路線をご記入ください。';
   const PH_DEFAULT   = 'お問い合わせ内容をご記入ください';
 
   if (typeSelect && messageArea) {
     typeSelect.addEventListener('change', () => {
-      messageArea.placeholder =
-        typeSelect.value === 'イベントへの参加申し込み' ? PH_EVENT : PH_DEFAULT;
+      const isEvent = typeSelect.value === 'イベントへの参加申し込み';
+      messageArea.placeholder  = isEvent ? PH_EVENT   : PH_DEFAULT;
+      if (subjectInput) {
+        subjectInput.placeholder = isEvent ? 'イベント名を入力してください' : '件名を入力してください';
+      }
     });
   }
 
