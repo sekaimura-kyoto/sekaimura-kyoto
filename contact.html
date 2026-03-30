@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | セカイムラ京都</title>
+  <meta name="description" content="セカイムラ京都へのお問い合わせ。イベント参加・体験プログラム・見学申し込み・依頼など。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .form-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .form-notice {
+      background: var(--color-bg-light);
+      border-left: 3px solid var(--color-accent);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--color-sub);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .form-submit {
+      text-align: center;
+      margin-top: 8px;
+    }
+    /* success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--color-bg-light);
+    }
+    .form-success h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .form-success p {
+      font-size: 14px;
+      color: var(--color-sub);
+    }
+  </style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <a href="index.html" class="header__logo">セカイムラ京都 <small>SEKAI MURA KYOTO</small></a>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li><a href="index.html"       class="nav__link" data-page="index.html">ホーム</a></li>
+      <li><a href="about.html"       class="nav__link" data-page="about.html">私たちについて</a></li>
+      <li><a href="events.html"      class="nav__link" data-page="events.html">イベント情報</a></li>
+      <li><a href="past-events.html" class="nav__link" data-page="past-events.html">過去のイベント</a></li>
+      <li><a href="members.html"     class="nav__link" data-page="members.html">メンバー紹介</a></li>
+      <li><a href="contact.html"     class="nav__link" data-page="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</header>
+<nav class="nav-drawer">
+  <a href="index.html"       class="nav__link" data-page="index.html">ホーム</a>
+  <a href="about.html"       class="nav__link" data-page="about.html">私たちについて</a>
+  <a href="events.html"      class="nav__link" data-page="events.html">イベント情報</a>
+  <a href="past-events.html" class="nav__link" data-page="past-events.html">過去のイベント</a>
+  <a href="members.html"     class="nav__link" data-page="members.html">メンバー紹介</a>
+  <a href="contact.html"     class="nav__link" data-page="contact.html">お問い合わせ</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__img"><!-- <img src="images/contact-hero.jpg" alt="お問い合わせ"> --></div>
+  <div class="page-hero__content">
+    <span class="page-hero__en">Contact</span>
+    <h1 class="page-hero__title">お問い合わせ</h1>
+  </div>
+</div>
+<div class="breadcrumb container">
+  <a href="index.html">ホーム</a><span class="breadcrumb__sep">/</span><span>お問い合わせ</span>
+</div>
+
+<!-- ===== Purpose cards ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__en">WE'RE HERE FOR</span>
+      <h2 class="section__title">こんなご連絡を受け付けています</h2>
+    </div>
+
+    <div class="contact-purposes fade-in">
+      <div class="contact-purpose">
+        <p class="contact-purpose__num">01</p>
+        <h3 class="contact-purpose__title">イベント参加申し込み</h3>
+        <p class="contact-purpose__text">
+          開催予定のイベントへの参加申し込み、<br>
+          詳細についてのお問い合わせ。
+        </p>
+      </div>
+      <div class="contact-purpose">
+        <p class="contact-purpose__num">02</p>
+        <h3 class="contact-purpose__title">セカイムラ拠点、田んぼに関するご質問</h3>
+        <p class="contact-purpose__text">
+          セカイムラでは全国各地に拠点があります。<br>
+          あなたの地域の村長さん、村人さんにおつなぎします。
+        </p>
+      </div>
+      <div class="contact-purpose">
+        <p class="contact-purpose__num">03</p>
+        <h3 class="contact-purpose__title">依頼・その他のご相談</h3>
+        <p class="contact-purpose__text">
+          メンバーへの依頼、コラボレーション、<br>
+          取材・メディア掲載などのご相談。
+        </p>
+      </div>
+      <div class="contact-purpose">
+        <p class="contact-purpose__num">04</p>
+        <h3 class="contact-purpose__title">空き家情報をお寄せください</h3>
+        <p class="contact-purpose__text">
+          南丹市、京丹波町などで活用していない家屋をお持ちの方は<br>
+          お知らせください。
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== Form ===== -->
+    <div class="form-wrap fade-in">
+      <div class="form-notice">
+        ご返信まで数日いただく場合がございます。お急ぎの場合は
+        <a href="https://www.instagram.com/sekaimura_kyoto/" target="_blank" rel="noopener" style="color:var(--color-accent);">Instagram のDM</a>
+        もご利用ください。
+      </div>
+
+      <!-- 送信成功メッセージ -->
+      <div class="form-success" id="form-success">
+        <h3>送信しました</h3>
+        <p>お問い合わせありがとうございます。<br>内容を確認の上、ご返信いたします。</p>
+      </div>
+
+      <!--
+        ▼▼▼ Formspree の設定方法 ▼▼▼
+        1. https://formspree.io/ で無料アカウント作成
+        2. 「New Form」→ メールアドレスを登録 → フォームIDを取得
+        3. 下の action="https://formspree.io/f/YOUR_FORM_ID" を書き換える
+      -->
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前 <span class="required">*</span>
+          </label>
+          <input
+            class="form-input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="山田 太郎"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス <span class="required">*</span>
+          </label>
+          <input
+            class="form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="type">お問い合わせの種類</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="type" name="type">
+              <option value="">選択してください</option>
+              <option value="イベント参加申し込み">イベント参加申し込み</option>
+              <option value="セカイムラ拠点・田んぼに関するご質問">セカイムラ拠点・田んぼに関するご質問</option>
+              <option value="依頼・コラボレーション">依頼・コラボレーション</option>
+              <option value="取材・メディア">取材・メディア</option>
+              <option value="空き家情報">空き家情報</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">件名</label>
+          <input
+            class="form-input"
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="件名を入力してください"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">
+            メッセージ <span class="required">*</span>
+          </label>
+          <textarea
+            class="form-textarea"
+            id="message"
+            name="message"
+            placeholder="お問い合わせ内容をご記入ください"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Formspree spam filter -->
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="【セカイムラ京都】お問い合わせ">
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn--primary">送信する</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Instagram リンク -->
+    <div style="text-align:center; margin-top:64px;" class="fade-in">
+      <p style="font-size:13px; color:var(--color-sub); margin-bottom:16px;">
+        Instagram でもお気軽にご連絡ください
+      </p>
+      <a href="https://www.instagram.com/sekaimura_kyoto/" class="btn btn--outline" target="_blank" rel="noopener">
+        Instagram を見る
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <p class="footer__logo">セカイムラ京都 <small>SEKAI MURA KYOTO</small></p>
+        <p class="footer__desc">得意なことを、好きなことを、<br>生かし合う京都のコミュニティ。</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">私たちについて</a>
+        <a href="events.html">イベント情報</a>
+        <a href="past-events.html">過去のイベント</a>
+        <a href="members.html">メンバー紹介</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 セカイムラ京都</p>
+      <div class="footer__sns">
+        <a href="https://www.instagram.com/sekaimura_kyoto/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=3"></script>
+<script>
+  // Formspree AJAX 送信（ページ遷移なし）
+  const form    = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      btn.textContent = '送信中…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.textContent = '送信する';
+          btn.disabled = false;
+          alert('送信に失敗しました。時間をおいて再度お試しください。');
+        }
+      } catch {
+        btn.textContent = '送信する';
+        btn.disabled = false;
+        alert('通信エラーが発生しました。');
+      }
+    });
+  }
+</script>
+</body>
+</html>

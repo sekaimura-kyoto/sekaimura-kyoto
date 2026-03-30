@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "セカイムラ京都（静的サイト）",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["/tmp/sekaiv_server.py"],
+      "port": 8080,
+      "autoPort": true
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イベント情報 | セカイムラ京都</title>
+  <meta name="description" content="セカイムラ京都のイベント・体験プログラム・ワークショップのご案内。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <a href="index.html" class="header__logo">セカイムラ京都 <small>SEKAI MURA KYOTO</small></a>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li><a href="index.html"       class="nav__link" data-page="index.html">ホーム</a></li>
+      <li><a href="about.html"       class="nav__link" data-page="about.html">私たちについて</a></li>
+      <li><a href="events.html"      class="nav__link" data-page="events.html">イベント情報</a></li>
+      <li><a href="past-events.html" class="nav__link" data-page="past-events.html">過去のイベント</a></li>
+      <li><a href="members.html"     class="nav__link" data-page="members.html">メンバー紹介</a></li>
+      <li><a href="contact.html"     class="nav__link" data-page="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</header>
+<nav class="nav-drawer">
+  <a href="index.html"       class="nav__link" data-page="index.html">ホーム</a>
+  <a href="about.html"       class="nav__link" data-page="about.html">私たちについて</a>
+  <a href="events.html"      class="nav__link" data-page="events.html">イベント情報</a>
+  <a href="past-events.html" class="nav__link" data-page="past-events.html">過去のイベント</a>
+  <a href="members.html"     class="nav__link" data-page="members.html">メンバー紹介</a>
+  <a href="contact.html"     class="nav__link" data-page="contact.html">お問い合わせ</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__img"><!-- <img src="images/events-hero.jpg" alt="イベント情報"> --></div>
+  <div class="page-hero__content">
+    <span class="page-hero__en">Events</span>
+    <h1 class="page-hero__title">イベント情報</h1>
+  </div>
+</div>
+<div class="breadcrumb container">
+  <a href="index.html">ホーム</a><span class="breadcrumb__sep">/</span><span>イベント情報</span>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__en">Upcoming Events</span>
+      <h2 class="section__title">開催予定のイベント</h2>
+      <p class="section__lead">
+        体験プログラム・ワークショップ・見学など、<br>
+        参加申し込みはお問い合わせページからどうぞ。
+      </p>
+    </div>
+    <!-- Google Sheets から自動で読み込まれます -->
+    <div id="events-list"></div>
+
+    <div style="text-align:center; margin-top:64px;" class="fade-in">
+      <p style="font-size:14px; color:var(--color-sub); margin-bottom:20px;">
+        過去のイベントはこちらからご覧いただけます
+      </p>
+      <a href="past-events.html" class="btn btn--outline">過去のイベントを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact CTA ===== -->
+<section class="section section--light">
+  <div class="container" style="text-align:center;">
+    <div class="fade-in">
+      <span class="section__en">Join</span>
+      <h2 class="section__title" style="margin-bottom:16px;">参加申し込み・お問い合わせ</h2>
+      <p class="section__lead" style="margin-bottom:32px;">
+        イベントへの参加・見学のお申し込みは<br>
+        お問い合わせフォームよりご連絡ください。
+      </p>
+      <a href="contact.html" class="btn btn--primary">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <p class="footer__logo">セカイムラ京都 <small>SEKAI MURA KYOTO</small></p>
+        <p class="footer__desc">得意なことを、好きなことを、<br>生かし合う京都のコミュニティ。</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">私たちについて</a>
+        <a href="events.html">イベント情報</a>
+        <a href="past-events.html">過去のイベント</a>
+        <a href="members.html">メンバー紹介</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 セカイムラ京都</p>
+      <div class="footer__sns">
+        <a href="https://www.instagram.com/sekaimura_kyoto/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js?v=3"></script>
+<script src="js/sheets.js?v=3"></script>
+<script src="js/events.js?v=3"></script>
+</body>
+</html>
