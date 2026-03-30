@@ -458,6 +458,13 @@ ul, ol { list-style: none; }
   h2, .section__title   { font-size: 24px !important; letter-spacing: 0.03em; line-height: 1.4; }
   h3 { font-size: 20px !important; }
 
+  /* hero catchcopy: 1行に収まるよう縮小 */
+  .hero__title {
+    font-size: clamp(15px, 5.2vw, 24px);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
   /* section label (英字・small caps) */
   .section__en,
   .page-hero__en,
