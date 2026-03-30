@@ -2,6 +2,49 @@
    セカイムラ京都 — コンポーネントスタイル
    ============================================================ */
 
+/* ===== Slideshow（ヒーロー直下 3枚フェード） ===== */
+.slide-section {
+  background: var(--color-bg);
+  padding: 56px 32px 64px;
+  overflow: hidden;
+}
+.slide-stage {
+  display: flex;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.slide-item {
+  flex: 1;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.slide-item.slide-visible {
+  opacity: 1;
+}
+.slide-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+/* 輪郭をふわっとぼかすビネット */
+.slide-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 82% 82% at center,
+    transparent 28%, var(--color-bg) 100%);
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .slide-section { padding: 40px 16px 48px; }
+  .slide-stage   { gap: 10px; }
+}
+
 /* ===== Hero Sub (画像下のテキスト＋CTA) ===== */
 .hero-sub {
   background: var(--color-bg);
