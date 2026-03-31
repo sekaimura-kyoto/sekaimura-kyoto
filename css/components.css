@@ -1263,20 +1263,20 @@ article > .img-pw {
   transform: translateX(0);
 }
 
-/* 個別位置調整 */
-.philosophy-item__deco[data-phil-idx="0"] { top: -46px;  }                          /* 1.png: 30px上 */
-.philosophy-item__deco[data-phil-idx="1"] { top: -76px;  }                          /* 2.png: 60px上 */
-.philosophy-item__deco[data-phil-idx="2"] { top: -76px;  }                          /* 3.png: 60px上（+30px） */
-.philosophy-item__deco[data-phil-idx="3"] { top: -36px; width: auto; height: 180px; } /* 4.png: 縦180px・20px上 */
+/* 個別位置調整（PC） */
+.philosophy-item__deco[data-phil-idx="0"] { top: 4px;   }                           /* 1.png: 50px下 */
+.philosophy-item__deco[data-phil-idx="1"] { top: -66px; }                           /* 2.png: 10px下 */
+.philosophy-item__deco[data-phil-idx="2"] { top: -21px; }                           /* 3.png: 55px下 */
+.philosophy-item__deco[data-phil-idx="3"] { top: -56px; width: auto; height: 126px; } /* 4.png: 70%縮小・20px上 */
 
 @media (max-width: 760px) {
   .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
   .philosophy-item { padding: 28px 24px; }
   .philosophy-item__deco { width: 150px; right: -8px; }
-  .philosophy-item__deco[data-phil-idx="0"] { top: -22px; }                             /* 1.png: 01数字の下端に揃え */
-  .philosophy-item__deco[data-phil-idx="1"] { top: -68px; right: -24px; }              /* 2.png: 見出し下端揃え */
-  .philosophy-item__deco[data-phil-idx="2"] { top: -4px;  right: -24px; }              /* 3.png: 見出し下端揃え */
-  .philosophy-item__deco[data-phil-idx="3"] { top: -79px; right: -4px;  width: auto; height: 180px; } /* 4.png: 見出し下端揃え・20px左へ */
+  .philosophy-item__deco[data-phil-idx="0"] { top: -12px; }                             /* 1.png: 10px下 */
+  .philosophy-item__deco[data-phil-idx="1"] { top: -48px; right: -9px; }               /* 2.png: 20px下・15px左 */
+  .philosophy-item__deco[data-phil-idx="2"] { top: 1px;   right: -24px; }              /* 3.png: 5px下 */
+  .philosophy-item__deco[data-phil-idx="3"] { top: -79px; right: -4px; width: auto; height: 126px; } /* 4.png: 位置そのまま・70%縮小 */
 }
 
 /* ===== What We Do ===== */
