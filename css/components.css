@@ -880,13 +880,93 @@
   line-height: 2;
   white-space: pre-line;
 }
+/* ── タグバッジ ── */
+.past-ev__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.past-ev__tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 20px;
+  padding: 2px 10px;
+  line-height: 1.6;
+}
+
 .loading-text, .no-data {
   text-align: center;
   color: var(--color-sub);
   font-size: 14px;
   padding: 48px 0;
 }
+
+/* ===== 絞り込みフィルターバー ===== */
+.filter-bar {
+  margin-bottom: 40px;
+  padding: 24px 28px;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.filter-bar__label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--color-sub);
+  margin-bottom: 10px;
+}
+.filter-bar__year {
+  margin-bottom: 20px;
+}
+.filter-year-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 8px 36px 8px 14px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  cursor: pointer;
+  min-width: 140px;
+}
+.filter-year-select:focus { outline: none; border-color: var(--color-accent); }
+.filter-bar__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-tag {
+  font-size: 12px;
+  font-family: var(--font-body);
+  letter-spacing: 0.06em;
+  color: var(--color-sub);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.5;
+}
+.filter-tag:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.filter-tag.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
 @media (max-width: 760px) {
+  .filter-bar { padding: 18px 16px; }
+  .filter-tag { font-size: 11px; padding: 4px 12px; }
   .past-events-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 

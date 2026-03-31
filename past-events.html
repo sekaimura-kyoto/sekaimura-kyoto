@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=4">
-  <link rel="stylesheet" href="css/components.css?v=3">
+  <link rel="stylesheet" href="css/components.css?v=6">
 </head>
 <body>
 
@@ -61,6 +61,9 @@
 
     <!-- Google Sheets PastEvents シートから自動読み込み -->
     <!-- シート列: 日付 | タイトル | 説明 | 画像1URL | 画像2URL | 画像3URL | 画像4URL -->
+    <!-- 絞り込みUI（JSで動的生成） -->
+    <div id="past-events-filter"></div>
+    <!-- Google Sheets pastevent シートから自動読み込み -->
     <div id="past-events-list"></div>
   </div>
 </section>
@@ -96,6 +99,6 @@
 
 <script src="js/main.js?v=3"></script>
 <script src="js/sheets.js?v=3"></script>
-<script src="js/past-events.js?v=3"></script>
+<script src="js/past-events.js?v=4"></script>
 </body>
 </html>
