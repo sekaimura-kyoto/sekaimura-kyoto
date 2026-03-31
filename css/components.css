@@ -1276,7 +1276,7 @@ article > .img-pw {
   .philosophy-item__deco[data-phil-idx="0"] { top: -12px; }
   .philosophy-item__deco[data-phil-idx="1"] { top: -38px; right: -9px; }               /* 2.png: 下10px */
   .philosophy-item__deco[data-phil-idx="2"] { top: 1px;   right: -24px; }
-  .philosophy-item__deco[data-phil-idx="3"] { top: -49px; right: 1px; width: auto; height: 126px; } /* 4.png: 左5px・下30px */
+  .philosophy-item__deco[data-phil-idx="3"] { top: -34px; right: 11px; width: auto; height: 126px; } /* 4.png: 左10px・下15px */
 }
 
 /* ===== What We Do ===== */
@@ -1284,22 +1284,47 @@ article > .img-pw {
   margin-top: 56px;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--color-border);
+  gap: 4px;
 }
 .whatwedo-item {
+  position: relative;
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 40px;
-  padding: 40px 0;
-  border-bottom: 1px solid var(--color-border);
+  padding: 64px 48px;
   align-items: start;
+  overflow: hidden;
+  border-radius: 4px;
+}
+/* パララックス背景 */
+.whatwedo-item__bg {
+  position: absolute;
+  inset: -60px 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+.whatwedo-item__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.52);
+}
+.whatwedo-item[data-bg="1"] .whatwedo-item__bg { background-image: url('../image/s1.jpg'); }
+.whatwedo-item[data-bg="2"] .whatwedo-item__bg { background-image: url('../image/s2.jpg'); }
+.whatwedo-item[data-bg="3"] .whatwedo-item__bg { background-image: url('../image/s3.jpg'); }
+.whatwedo-item[data-bg="4"] .whatwedo-item__bg { background-image: url('../image/s4.jpg'); }
+.whatwedo-item__num,
+.whatwedo-item__body {
+  position: relative;
+  z-index: 1;
 }
 .whatwedo-item__num {
   font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 300;
-  color: var(--color-accent);
+  color: rgba(255,255,255,0.7);
   line-height: 1;
   padding-top: 4px;
 }
@@ -1308,21 +1333,38 @@ article > .img-pw {
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 16px;
-  color: var(--color-text);
+  color: #fff;
 }
 .whatwedo-item__text {
   font-size: 14px;
-  color: var(--color-sub);
+  color: rgba(255,255,255,0.85);
   line-height: 2.1;
 }
 .whatwedo-item__text + .whatwedo-item__text {
   margin-top: 14px;
 }
+.whatwedo-item__text a {
+  color: #a8d4f0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* 05 背景なし */
+.whatwedo-item--plain {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+.whatwedo-item--plain .whatwedo-item__num { color: var(--color-accent); }
+.whatwedo-item--plain .whatwedo-item__title { color: var(--color-text); }
+.whatwedo-item--plain .whatwedo-item__text { color: var(--color-sub); }
+.whatwedo-item--plain .whatwedo-item__text a { color: var(--color-accent); }
+
 @media (max-width: 640px) {
   .whatwedo-item {
     grid-template-columns: 1fr;
     gap: 12px;
-    padding: 32px 0;
+    padding: 40px 24px;
   }
   .whatwedo-item__num { font-size: 20px; }
+  /* スマホはfixedが効かないためscrollに */
+  .whatwedo-item__bg { background-attachment: scroll; inset: 0; }
 }
