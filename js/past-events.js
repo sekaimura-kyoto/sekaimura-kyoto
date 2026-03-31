@@ -8,8 +8,8 @@
 const CATEGORY_TAGS = [
   '田んぼ', '畑', '年中行事', '里山体験', '一般募集',
   'ご縁祭り', 'マルシェ', 'さとうみつろうさん', '発酵･保存食',
-  '遊び企画', '新月会', '満月会', '春', '夏', '秋', '冬',
-  '祭り部', '忘年会', '新年会'
+  '遊び企画', '新月･満月会', '忘年･新年会', '祭り部',
+  '美山町', '京都市', 'その他'
 ];
 
 let allEvents   = [];
@@ -42,9 +42,9 @@ function renderPastEventCard(ev) {
   const title = ev['タイトル'] ? `<h3 class="past-ev__title">${ev['タイトル']}</h3>`     : '';
   const desc  = ev['説明']    ? `<p class="past-ev__desc" style="white-space:pre-line;">${ev['説明']}</p>` : '';
 
-  // タグバッジ（タグ2・タグ3）
-  const tagBadges = [ev['タグ2'], ev['タグ3']]
-    .filter(t => t)
+  // タグバッジ（タグ2・タグ3・場所タグ）
+  const tagBadges = [ev['タグ2'], ev['タグ3'], ev['場所タグ']]
+    .filter(t => t && t.trim())
     .map(t => `<span class="past-ev__tag">${t}</span>`)
     .join('');
   const tagHtml = tagBadges ? `<div class="past-ev__tags">${tagBadges}</div>` : '';
@@ -99,8 +99,9 @@ function applyFilter() {
   if (!container) return;
 
   const filtered = allEvents.filter(ev => {
-    const yearMatch = !selectedYear || ev['年別タグ'] === selectedYear;
-    const evTags = [ev['タグ2'], ev['タグ3']].filter(t => t);
+    const yearMatch = !selectedYear || (ev['年別タグ'] || '').trim() === selectedYear;
+    const evTags = [ev['タグ2'], ev['タグ3'], ev['場所タグ']]
+      .filter(t => t && t.trim());
     const tagMatch = !selectedTag || evTags.includes(selectedTag);
     return yearMatch && tagMatch;
   });
