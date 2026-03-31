@@ -1218,9 +1218,11 @@ article > .img-pw {
   margin-top: 56px;
 }
 .philosophy-item {
+  position: relative;
   padding: 36px 32px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
+  overflow: visible;
 }
 .philosophy-item__num {
   font-family: var(--font-heading);
@@ -1241,9 +1243,30 @@ article > .img-pw {
   color: var(--color-sub);
   line-height: 2.1;
 }
+
+/* デコ画像：カード右上に張り出す */
+.philosophy-item__deco {
+  position: absolute;
+  top: -16px;
+  right: -28px;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  /* 初期状態：左からスライドイン用 */
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  z-index: 2;
+}
+.philosophy-item__deco.phil-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @media (max-width: 760px) {
   .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
   .philosophy-item { padding: 28px 24px; }
+  .philosophy-item__deco { width: 180px; top: -14px; right: -16px; }
 }
 
 /* ===== What We Do ===== */

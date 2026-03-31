@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=4">
-  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=11">
 </head>
 <body>
 
@@ -90,23 +90,27 @@
       <h2 class="section__title">大切にしている思い</h2>
       <p class="section__lead">里山の風景で童心に還り、田畑で共同作業をする。素顔のままで人と関わる先に、思いがけない可能性が広がっています。</p>
     </div>
-    <div class="philosophy-grid fade-in">
+    <div class="philosophy-grid fade-in" id="philosophy-grid">
       <div class="philosophy-item">
+        <img src="image/01.png" alt="自分らしさを生かし合う" class="philosophy-item__deco" data-phil-idx="0">
         <p class="philosophy-item__num">01</p>
         <h3 class="philosophy-item__title">自分らしさを生かし合う</h3>
         <p class="philosophy-item__text">得意なこと、好きなこと、人それぞれ違っていい。その違いこそが、コミュニティの豊かさになると信じています。役割や大人を演じなくていい。あなたのままで活躍してください。</p>
       </div>
       <div class="philosophy-item">
+        <img src="image/2.png" alt="自然とともに生きる" class="philosophy-item__deco" data-phil-idx="1">
         <p class="philosophy-item__num">02</p>
         <h3 class="philosophy-item__title">自然とともに生きる</h3>
         <p class="philosophy-item__text">週末、南丹市美山町の古民家と農地で、季節のリズムを感じながら過ごす。土に触れ、食を育て、自然の声に耳を澄ます。心身が整うのはもちろん、無邪気に遊べば子どもの頃の笑顔を取り戻せます。</p>
       </div>
       <div class="philosophy-item">
+        <img src="image/3.png" alt="居場所であること" class="philosophy-item__deco" data-phil-idx="2">
         <p class="philosophy-item__num">03</p>
         <h3 class="philosophy-item__title">居場所であること</h3>
         <p class="philosophy-item__text">「ここにいていい」と思える場所を大切にしています。それぞれのペースで関われる、ゆるやかなつながりの場。トップのいないフラットなコミュニティを目指しています。</p>
       </div>
       <div class="philosophy-item">
+        <img src="image/4.png" alt="互いに応援し合う" class="philosophy-item__deco" data-phil-idx="3">
         <p class="philosophy-item__num">04</p>
         <h3 class="philosophy-item__title">互いに応援し合う</h3>
         <p class="philosophy-item__text">一人では難しいことも、みんなとなら動き出せる。やりたい企画を発案すれば一緒にやりたい人が見つかり、困り事を相談すれば誰かが手を貸してくれる。そんな土壌を育てています。</p>
@@ -265,5 +269,32 @@
 </footer>
 
 <script src="js/main.js?v=7"></script>
+<script>
+/* ===== Philosophy デコ画像 スライドイン ===== */
+(function () {
+  const DELAY = [0, 0.18, 0.36, 0.54]; // 01→04 の時間差（秒）
+
+  const decos = document.querySelectorAll('.philosophy-item__deco');
+  if (!decos.length) return;
+
+  decos.forEach((img, i) => {
+    img.style.transitionDelay = DELAY[i] + 's';
+  });
+
+  const grid = document.getElementById('philosophy-grid');
+  if (!grid) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        decos.forEach(img => img.classList.add('phil-visible'));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(grid);
+})();
+</script>
 </body>
 </html>
