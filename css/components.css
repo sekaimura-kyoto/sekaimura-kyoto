@@ -970,6 +970,81 @@
   .past-events-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
+/* ===== ページネーション ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 0 16px;
+  flex-wrap: wrap;
+}
+.pagination__btn {
+  font-size: 13px;
+  font-family: var(--font-body);
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.4;
+}
+.pagination__btn:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.pagination__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.pagination__info {
+  font-size: 13px;
+  color: var(--color-sub);
+  padding: 0 8px;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 480px) {
+  .pagination__btn { font-size: 12px; padding: 6px 12px; }
+}
+
+/* ===== Back to Top Button ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 900;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--color-accent-dark, #3a6a8a);
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .back-to-top { bottom: 20px; right: 16px; width: 40px; height: 40px; }
+}
+
 /* ===== Past Event Card (PastEventsシート用) ===== */
 .past-event-card {
   background: var(--color-bg);

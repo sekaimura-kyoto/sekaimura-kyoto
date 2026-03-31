@@ -1,8 +1,5 @@
 /* ============================================================
-   セカイムラ京都 — 過去の活動 表示 + 絞り込み
-   ============================================================
-   PastEvents シート列:
-   日付 | タイトル | 説明 | 画像1URL〜4URL | 年別タグ | タグ2 | タグ3
+   セカイムラ京都 — 過去の活動 表示 + 絞り込み + ページネーション
    ============================================================ */
 
 const CATEGORY_TAGS = [
@@ -12,9 +9,13 @@ const CATEGORY_TAGS = [
   '美山町', '京都市', 'その他'
 ];
 
-let allEvents   = [];
-let selectedYear = '';
-let selectedTag  = '';
+const ITEMS_PER_PAGE = 3;
+
+let allEvents     = [];
+let filteredEvents = [];
+let selectedYear  = '';
+let selectedTag   = '';
+let currentPage   = 1;
 
 /* ── 日付フォーマット ── */
 function formatDate(str) {
@@ -27,7 +28,7 @@ function formatDate(str) {
 /* ── イベントカード生成 ── */
 function renderPastEventCard(ev) {
   const imgs = ['画像1URL','画像2URL','画像3URL','画像4URL']
-    .map(k => toDriveImgUrl(ev[k] || ''))
+    .map(k => toDriveImgUrl((ev[k] || '').trim()))
     .filter(u => u);
 
   const imgHtml = imgs.length
@@ -40,9 +41,8 @@ function renderPastEventCard(ev) {
 
   const date  = ev['日付']    ? `<p class="past-ev__date">${formatDate(ev['日付'])}</p>` : '';
   const title = ev['タイトル'] ? `<h3 class="past-ev__title">${ev['タイトル']}</h3>`     : '';
-  const desc  = ev['説明']    ? `<p class="past-ev__desc" style="white-space:pre-line;">${ev['説明']}</p>` : '';
+  const desc  = ev['説明']    ? `<p class="past-ev__desc">${ev['説明']}</p>` : '';
 
-  // タグバッジ（タグ2・タグ3・場所タグ）
   const tagBadges = [ev['タグ2'], ev['タグ3'], ev['場所タグ']]
     .filter(t => t && t.trim())
     .map(t => `<span class="past-ev__tag">${t}</span>`)
@@ -63,9 +63,57 @@ function renderPastEventCard(ev) {
     </article>`;
 }
 
+/* ── ページネーション HTML ── */
+function buildPaginationHTML(total, current) {
+  const totalPages = Math.ceil(total / ITEMS_PER_PAGE);
+  if (totalPages <= 1) return '';
+
+  return `
+    <div class="pagination">
+      <button class="pagination__btn" data-action="first"  ${current === 1 ? 'disabled' : ''}>&laquo; 最初</button>
+      <button class="pagination__btn" data-action="prev"   ${current === 1 ? 'disabled' : ''}>&lsaquo; 前へ</button>
+      <span class="pagination__info">${current} / ${totalPages}</span>
+      <button class="pagination__btn" data-action="next"   ${current === totalPages ? 'disabled' : ''}>次へ &rsaquo;</button>
+      <button class="pagination__btn" data-action="last"   ${current === totalPages ? 'disabled' : ''}>最後 &raquo;</button>
+    </div>`;
+}
+
+/* ── 現在のページを描画 ── */
+function renderCurrentPage() {
+  const container = document.getElementById('past-events-list');
+  if (!container) return;
+
+  const totalPages = Math.ceil(filteredEvents.length / ITEMS_PER_PAGE);
+
+  if (!filteredEvents.length) {
+    container.innerHTML = '<p class="no-data">該当する活動がありません。</p>';
+    return;
+  }
+
+  const start = (currentPage - 1) * ITEMS_PER_PAGE;
+  const pageItems = filteredEvents.slice(start, start + ITEMS_PER_PAGE);
+
+  container.innerHTML =
+    pageItems.map(renderPastEventCard).join('') +
+    buildPaginationHTML(filteredEvents.length, currentPage);
+
+  // ページネーションイベント
+  container.querySelectorAll('.pagination__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      if (action === 'first') currentPage = 1;
+      if (action === 'prev')  currentPage = Math.max(1, currentPage - 1);
+      if (action === 'next')  currentPage = Math.min(totalPages, currentPage + 1);
+      if (action === 'last')  currentPage = totalPages;
+      renderCurrentPage();
+      document.getElementById('past-events-filter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
 /* ── フィルターUI生成 ── */
 function buildFilterUI(events) {
-  const years = [...new Set(events.map(e => e['年別タグ']).filter(y => y))]
+  const years = [...new Set(events.map(e => (e['年別タグ'] || '').trim()).filter(y => y))]
     .sort().reverse();
 
   const yearOptions = [
@@ -93,24 +141,17 @@ function buildFilterUI(events) {
     </div>`;
 }
 
-/* ── 絞り込み適用 ── */
+/* ── 絞り込み適用（ページを1に戻す） ── */
 function applyFilter() {
-  const container = document.getElementById('past-events-list');
-  if (!container) return;
-
-  const filtered = allEvents.filter(ev => {
+  filteredEvents = allEvents.filter(ev => {
     const yearMatch = !selectedYear || (ev['年別タグ'] || '').trim() === selectedYear;
     const evTags = [ev['タグ2'], ev['タグ3'], ev['場所タグ']]
       .filter(t => t && t.trim());
     const tagMatch = !selectedTag || evTags.includes(selectedTag);
     return yearMatch && tagMatch;
   });
-
-  if (!filtered.length) {
-    container.innerHTML = '<p class="no-data">該当する活動がありません。</p>';
-    return;
-  }
-  container.innerHTML = filtered.map(renderPastEventCard).join('');
+  currentPage = 1;
+  renderCurrentPage();
 }
 
 /* ── メイン ── */
@@ -125,6 +166,8 @@ async function renderPastEvents(containerId) {
     container.innerHTML = '<p class="no-data">現在、掲載できる活動情報がありません。</p>';
     return;
   }
+
+  filteredEvents = [...allEvents];
 
   // フィルターUI挿入
   const filterWrapper = document.getElementById('past-events-filter');
@@ -146,7 +189,7 @@ async function renderPastEvents(containerId) {
     });
   }
 
-  container.innerHTML = allEvents.map(renderPastEventCard).join('');
+  renderCurrentPage();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

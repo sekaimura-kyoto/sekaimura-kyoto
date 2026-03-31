@@ -131,6 +131,21 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => { buildDots(); goTo(0); });
   }
 
+  /* ===== Back to Top Button ===== */
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'ページ上部に戻る');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"/></svg>';
+  document.body.appendChild(backToTop);
+
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   /* ===== Fade-in on scroll ===== */
   const fadeEls = document.querySelectorAll('.fade-in');
   if (fadeEls.length > 0) {
