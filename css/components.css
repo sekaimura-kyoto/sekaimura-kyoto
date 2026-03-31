@@ -788,6 +788,35 @@
   .contact-purposes { grid-template-columns: 1fr; }
 }
 
+/* ===== Philosophy パララックス背景 ===== */
+.philosophy-section {
+  position: relative;
+  overflow: hidden;
+}
+.philosophy-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('../image/p1.jpg') center / cover no-repeat;
+  background-attachment: scroll;
+  z-index: 0;
+}
+.philosophy-section__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.88);
+}
+@media (hover: hover) and (pointer: fine) {
+  .philosophy-section__bg {
+    inset: -80px 0;
+    background-attachment: fixed;
+  }
+}
+.philosophy-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== Our Story パララックス背景 ===== */
 .our-story-section {
   position: relative;
