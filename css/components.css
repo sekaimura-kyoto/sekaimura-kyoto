@@ -804,7 +804,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.82);
 }
 /* マウス操作のPCのみparalaxを有効に */
 @media (hover: hover) and (pointer: fine) {
@@ -816,6 +816,14 @@
 .our-story-section > .container {
   position: relative;
   z-index: 1;
+}
+/* Our Story 内では about-lead を単カラムにする */
+.our-story-section .about-lead {
+  display: block;
+}
+.our-story-section .about-lead__text + .our-story-mid-img,
+.our-story-section .our-story-mid-img + .about-lead__text {
+  margin-top: 32px;
 }
 /* Our Story 文中画像 */
 .our-story-mid-img {
