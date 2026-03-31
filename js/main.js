@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (img.classList.contains('philosophy-item__deco')) return;
     if (img.src && img.src.includes('ig.png')) return;
     if (img.closest('.location-card__bg')) return;
+    if (img.closest('.our-story-mid-img')) return;
 
     img.dataset.pw = '1';
     const wrap = document.createElement('span');
