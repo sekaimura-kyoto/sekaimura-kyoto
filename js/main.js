@@ -140,14 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 透明レイヤー＋透かしのラッパーを画像に付加
+  const _page = window.location.pathname;
+
+  function needsWatermark(img) {
+    if (_page.endsWith('about.html') ||
+        _page.endsWith('past-events.html') ||
+        _page.endsWith('members.html')) return true;
+    // index.html は about.jpg / ourstory.jpg のみ
+    if (_page.endsWith('index.html') || _page === '/' || _page.endsWith('/')) {
+      const src = img.src || img.getAttribute('src') || '';
+      return src.includes('about.jpg') || src.includes('ourstory.jpg');
+    }
+    return false;
+  }
+
   function wrapImg(img) {
     if (img.dataset.pw === '1') return;
     if (img.closest('.header') || img.closest('.back-to-top')) return;
+    if (img.closest('.hero__bg') || img.closest('.page-hero__img')) return;
     if (img.src && img.src.includes('ig.png')) return;
 
     img.dataset.pw = '1';
     const wrap = document.createElement('span');
-    wrap.className = 'img-pw';
+    wrap.className = needsWatermark(img) ? 'img-pw img-wm' : 'img-pw';
     img.parentNode.insertBefore(wrap, img);
     wrap.appendChild(img);
   }
