@@ -1381,13 +1381,17 @@ article > .img-pw {
 }
 .whatwedo-item {
   position: relative;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   padding: 64px 48px;
-  align-items: start;
   overflow: hidden;
   border-radius: 4px;
+}
+.whatwedo-item__body {
+  max-width: 580px;
 }
 /* パララックス背景 */
 .whatwedo-item__bg {
@@ -1458,8 +1462,7 @@ article > .img-pw {
     grid-column: 1;
   }
   .whatwedo-item {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
     padding: 40px 24px;
   }
   .whatwedo-item__num { font-size: 20px; }
