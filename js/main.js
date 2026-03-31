@@ -131,6 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => { buildDots(); goTo(0); });
   }
 
+  /* ===== Image Protection ===== */
+  document.addEventListener('contextmenu', e => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', e => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+
   /* ===== Back to Top Button ===== */
   const backToTop = document.createElement('button');
   backToTop.className = 'back-to-top';
