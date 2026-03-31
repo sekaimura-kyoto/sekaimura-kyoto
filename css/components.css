@@ -1263,10 +1263,17 @@ article > .img-pw {
   transform: translateX(0);
 }
 
+/* 個別位置調整 */
+.philosophy-item__deco[data-phil-idx="0"] { top: -76px;  }          /* 1.png: 60px上 */
+.philosophy-item__deco[data-phil-idx="1"] { top: -106px; }          /* 2.png: 90px上 */
+.philosophy-item__deco[data-phil-idx="2"] { top: -106px; }          /* 3.png: 90px上 */
+.philosophy-item__deco[data-phil-idx="3"] { top: -76px; width: auto; height: 90px; } /* 4.png: 縦90px・60px上 */
+
 @media (max-width: 760px) {
   .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
   .philosophy-item { padding: 28px 24px; }
   .philosophy-item__deco { width: 180px; top: -14px; right: -16px; }
+  .philosophy-item__deco[data-phil-idx="3"] { width: auto; height: 70px; }
 }
 
 /* ===== What We Do ===== */
