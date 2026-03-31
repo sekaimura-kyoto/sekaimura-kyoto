@@ -970,6 +970,15 @@
   .past-events-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
+/* ===== 画像著作権表示 ===== */
+.img-copyright {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--color-sub);
+  letter-spacing: 0.06em;
+}
+
 /* ===== ページネーション ===== */
 .pagination {
   display: flex;
@@ -1074,20 +1083,20 @@ article > .img-pw {
   z-index: 2;
   cursor: default;
 }
-/* 透かしテキスト */
-.img-pw::after {
+/* 透かしテキスト（.img-wm クラスがある画像のみ） */
+.img-pw.img-wm::after {
   content: '\00A9 SEKAIMURA KYOTO';
   position: absolute;
   bottom: 7px;
   right: 9px;
   z-index: 3;
-  font-size: 9pt;
+  font-size: 5pt;
+  font-style: italic;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.78);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.35);
   pointer-events: none;
   white-space: nowrap;
 }
