@@ -1272,11 +1272,11 @@ article > .img-pw {
 @media (max-width: 760px) {
   .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
   .philosophy-item { padding: 28px 24px; }
-  .philosophy-item__deco { width: 150px; right: -8px; }   /* 1.25倍 */
-  .philosophy-item__deco[data-phil-idx="0"] { top: -36px; }                         /* 1.png: 位置そのまま */
-  .philosophy-item__deco[data-phil-idx="1"] { top: -91px; }                         /* 2.png: 見出し下端揃え */
-  .philosophy-item__deco[data-phil-idx="2"] { top: -91px; }                         /* 3.png: 見出し下端揃え */
-  .philosophy-item__deco[data-phil-idx="3"] { top: -41px; width: auto; height: 138px; } /* 4.png: 1.25倍・見出し下端揃え */
+  .philosophy-item__deco { width: 150px; right: -8px; }
+  .philosophy-item__deco[data-phil-idx="0"] { top: -139px; }                            /* 1.png: 01数字の下端に揃え */
+  .philosophy-item__deco[data-phil-idx="1"] { top: -91px; right: -24px; }              /* 2.png: タイトル下端揃え・右へ */
+  .philosophy-item__deco[data-phil-idx="2"] { top: -91px; right: -24px; }              /* 3.png: タイトル下端揃え・右へ */
+  .philosophy-item__deco[data-phil-idx="3"] { top: -41px; right: -24px; width: auto; height: 138px; } /* 4.png: タイトル下端揃え・右へ */
 }
 
 /* ===== What We Do ===== */
