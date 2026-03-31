@@ -139,6 +139,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.tagName === 'IMG') e.preventDefault();
   });
 
+  // 透明レイヤー＋透かしのラッパーを画像に付加
+  function wrapImg(img) {
+    if (img.dataset.pw === '1') return;
+    if (img.closest('.header') || img.closest('.back-to-top')) return;
+    if (img.src && img.src.includes('ig.png')) return;
+
+    img.dataset.pw = '1';
+    const wrap = document.createElement('span');
+    wrap.className = 'img-pw';
+    img.parentNode.insertBefore(wrap, img);
+    wrap.appendChild(img);
+  }
+
+  // 既存の画像を処理
+  document.querySelectorAll('img').forEach(wrapImg);
+
+  // 動的に追加される画像（スプレッドシートから描画）も処理
+  const pwObserver = new MutationObserver(mutations => {
+    mutations.forEach(m => m.addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      if (node.tagName === 'IMG') { wrapImg(node); return; }
+      node.querySelectorAll('img').forEach(wrapImg);
+    }));
+  });
+  pwObserver.observe(document.body, { childList: true, subtree: true });
+
   /* ===== Back to Top Button ===== */
   const backToTop = document.createElement('button');
   backToTop.className = 'back-to-top';

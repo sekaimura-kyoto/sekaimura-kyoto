@@ -1045,6 +1045,53 @@
   .back-to-top { bottom: 20px; right: 16px; width: 40px; height: 40px; }
 }
 
+/* ===== Image Protection: 透明レイヤー＋透かし ===== */
+.img-pw {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+}
+/* 親がblock/flex/gridの場合はblock表示にする */
+li > .img-pw,
+div > .img-pw,
+figure > .img-pw,
+article > .img-pw {
+  display: block;
+}
+.img-pw img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* 透明な選択ブロッキングレイヤー */
+.img-pw::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: default;
+}
+/* 透かしテキスト */
+.img-pw::after {
+  content: '\00A9 SEKAIMURA KYOTO';
+  position: absolute;
+  bottom: 7px;
+  right: 9px;
+  z-index: 3;
+  font-size: 9pt;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* ===== Past Event Card (PastEventsシート用) ===== */
 .past-event-card {
   background: var(--color-bg);
