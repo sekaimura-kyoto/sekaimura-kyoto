@@ -1264,19 +1264,19 @@ article > .img-pw {
 }
 
 /* 個別位置調整（PC） */
-.philosophy-item__deco[data-phil-idx="0"] { top: 4px;   }                           /* 1.png: 50px下 */
-.philosophy-item__deco[data-phil-idx="1"] { top: -66px; }                           /* 2.png: 10px下 */
-.philosophy-item__deco[data-phil-idx="2"] { top: -21px; }                           /* 3.png: 55px下 */
-.philosophy-item__deco[data-phil-idx="3"] { top: -56px; width: auto; height: 126px; } /* 4.png: 70%縮小・20px上 */
+.philosophy-item__deco[data-phil-idx="0"] { top: 4px;   right: -18px; }             /* 1.png: 左10px */
+.philosophy-item__deco[data-phil-idx="1"] { top: -61px; right: -18px; }             /* 2.png: 左10px・下5px */
+.philosophy-item__deco[data-phil-idx="2"] { top: -21px; right: -18px; }             /* 3.png: 左10px */
+.philosophy-item__deco[data-phil-idx="3"] { top: -41px; right: 22px; width: auto; height: 126px; } /* 4.png: 左50px・下15px */
 
 @media (max-width: 760px) {
   .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
   .philosophy-item { padding: 28px 24px; }
   .philosophy-item__deco { width: 150px; right: -8px; }
-  .philosophy-item__deco[data-phil-idx="0"] { top: -12px; }                             /* 1.png: 10px下 */
-  .philosophy-item__deco[data-phil-idx="1"] { top: -48px; right: -9px; }               /* 2.png: 20px下・15px左 */
-  .philosophy-item__deco[data-phil-idx="2"] { top: 1px;   right: -24px; }              /* 3.png: 5px下 */
-  .philosophy-item__deco[data-phil-idx="3"] { top: -79px; right: -4px; width: auto; height: 126px; } /* 4.png: 位置そのまま・70%縮小 */
+  .philosophy-item__deco[data-phil-idx="0"] { top: -12px; }
+  .philosophy-item__deco[data-phil-idx="1"] { top: -38px; right: -9px; }               /* 2.png: 下10px */
+  .philosophy-item__deco[data-phil-idx="2"] { top: 1px;   right: -24px; }
+  .philosophy-item__deco[data-phil-idx="3"] { top: -49px; right: 1px; width: auto; height: 126px; } /* 4.png: 左5px・下30px */
 }
 
 /* ===== What We Do ===== */
