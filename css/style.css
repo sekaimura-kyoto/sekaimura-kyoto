@@ -460,6 +460,9 @@ ul, ol { list-style: none; }
   h3 { font-size: 20px !important; }
 
   /* hero catchcopy: 1行に収まるよう縮小 */
+  .hero__content {
+    margin-top: calc(-90px - 12px);
+  }
   .hero__title {
     font-size: 20px;
     letter-spacing: 0.01em;
