@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (img.src && img.src.includes('ig.png')) return;
     if (img.closest('.location-card__bg')) return;
     if (img.closest('.our-story-mid-img')) return;
+    if (img.closest('.about-gallery__item')) return;
 
     img.dataset.pw = '1';
     const wrap = document.createElement('span');
