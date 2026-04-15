@@ -464,7 +464,7 @@ ul, ol { list-style: none; }
     margin-top: calc(-90px - 12px - 24px);
   }
   .hero__title {
-    font-size: 17px;
+    font-size: 13px;
     letter-spacing: 0.01em;
     white-space: nowrap;
   }
